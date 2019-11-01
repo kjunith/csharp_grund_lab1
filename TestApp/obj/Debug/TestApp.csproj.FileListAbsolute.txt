@@ -1,0 +1,6 @@
+/Users/kjunit/Projects/TestApp/TestApp/bin/Debug/TestApp.exe
+/Users/kjunit/Projects/TestApp/TestApp/bin/Debug/TestApp.pdb
+/Users/kjunit/Projects/TestApp/TestApp/obj/Debug/TestApp.csprojAssemblyReference.cache
+/Users/kjunit/Projects/TestApp/TestApp/obj/Debug/TestApp.csproj.CoreCompileInputs.cache
+/Users/kjunit/Projects/TestApp/TestApp/obj/Debug/TestApp.exe
+/Users/kjunit/Projects/TestApp/TestApp/obj/Debug/TestApp.pdb
