@@ -68,55 +68,20 @@ namespace TestApp
                 switch (Console.ReadLine())
                 {
                     case "1":
-                            try
-                            {
-                                Console.Write("Enter first number: ");
-                                calc.FirstNumber = int.Parse(Console.ReadLine());
-
-                                Console.Write("Enter second number: ");
-                                calc.SecondNumber = int.Parse(Console.ReadLine());
-
-                                Console.WriteLine("{0} + {1} = {2}",
-                                    calc.FirstNumber, calc.SecondNumber, calc.SumNumbers());
-                            } catch (FormatException)
-                            {
-                                break;
-                            }
-                            break;
+                        EnterNumbers(calc);
+                        Console.WriteLine("{0} + {1} = {2}",
+                            calc.FirstNumber, calc.SecondNumber, calc.SumNumbers());
+                        break;
                     case "2":
-                            try
-                            {
-                                Console.Write("Enter first number: ");
-                                calc.FirstNumber = int.Parse(Console.ReadLine());
-
-                                Console.Write("Enter second number: ");
-                                calc.SecondNumber = int.Parse(Console.ReadLine());
-
-                                Console.WriteLine("{0} * {1} = {2}",
-                                    calc.FirstNumber, calc.SecondNumber, calc.MultiplyNumbers());
-                            }
-                            catch (FormatException)
-                            {
-                                break;
-                            }
-                            break;
+                        EnterNumbers(calc);
+                        Console.WriteLine("{0} * {1} = {2}",
+                            calc.FirstNumber, calc.SecondNumber, calc.MultiplyNumbers());
+                        break;
                     case "3":
-                            try
-                            {
-                                Console.Write("Enter first number: ");
-                                calc.FirstNumber = int.Parse(Console.ReadLine());
-
-                                Console.Write("Enter second number: ");
-                                calc.SecondNumber = int.Parse(Console.ReadLine());
-
-                                Console.WriteLine("{0} > {1} = {2}",
-                                    calc.FirstNumber, calc.SecondNumber, calc.SumInBetween());
-                            }
-                            catch (FormatException)
-                            {
-                                break;
-                            }
-                            break;
+                        EnterNumbers(calc);
+                        Console.WriteLine("{0} > {1} = {2}",
+                            calc.FirstNumber, calc.SecondNumber, calc.SumInBetween());
+                        break;
                     case "4":
                             try
                             {
@@ -148,6 +113,22 @@ namespace TestApp
                 Console.WriteLine("Press any key...");
                 Console.ReadKey();
                 Console.Clear();
+            }
+        }
+
+        public static void EnterNumbers(Calculator calc)
+        {
+            try
+            {
+                Console.Write("Enter first number: ");
+                calc.FirstNumber = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter second number: ");
+                calc.SecondNumber = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                return;
             }
         }
     }
