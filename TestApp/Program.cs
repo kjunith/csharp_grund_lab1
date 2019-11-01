@@ -4,9 +4,9 @@ namespace TestApp
 {
     class Calculator
     {
-        public int FirstNumber { get; set; }
-        public int SecondNumber { get; set; }
-        public int NumberInMemory { get; set; }
+        public double FirstNumber { get; set; }
+        public double SecondNumber { get; set; }
+        public double NumberInMemory { get; set; }
             
         public Calculator()
         {
@@ -23,21 +23,21 @@ namespace TestApp
                 FirstNumber, SecondNumber, NumberInMemory);
         }
 
-        public int SumNumbers()
+        public double SumNumbers()
         {
             return FirstNumber + SecondNumber;
         }
 
-        public int MultiplyNumbers()
+        public double MultiplyNumbers()
         {
             return FirstNumber * SecondNumber;
         }
 
-        public int SumInBetween()
+        public double SumInBetween()
         {
-            int sumInBetween = 0;
+            double sumInBetween = 0;
 
-            for (int i = FirstNumber; i < SecondNumber; i++)
+            for (int i = (int) FirstNumber; i < (int) SecondNumber; i++)
             {
                 sumInBetween += i;
             }
@@ -51,9 +51,9 @@ namespace TestApp
         public static void Main(string[] args)
         {
             Calculator calc = new Calculator();
-            int option = 0;
+            bool isRunning = true;
 
-            while (option != -1)
+            while (isRunning)
             {
                 Console.WriteLine("1. Add two numbers\n"
                     + "2. Multiplay two numbers\n"
@@ -65,55 +65,83 @@ namespace TestApp
 
                 Console.Write("Option: ");
 
-                switch (int.Parse(Console.ReadLine()))
+                switch (Console.ReadLine())
                 {
-                    case 1:
-                        Console.Write("Enter first number: ");
-                        calc.FirstNumber = int.Parse(Console.ReadLine());
+                    case "1":
+                            try
+                            {
+                                Console.Write("Enter first number: ");
+                                calc.FirstNumber = int.Parse(Console.ReadLine());
 
-                        Console.Write("Enter second number: ");
-                        calc.SecondNumber = int.Parse(Console.ReadLine());
+                                Console.Write("Enter second number: ");
+                                calc.SecondNumber = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("{0} + {1} = {2}",
-                            calc.FirstNumber, calc.SecondNumber, calc.SumNumbers());
-                        break;
-                    case 2:
-                        Console.Write("Enter first number: ");
-                        calc.FirstNumber = int.Parse(Console.ReadLine());
+                                Console.WriteLine("{0} + {1} = {2}",
+                                    calc.FirstNumber, calc.SecondNumber, calc.SumNumbers());
+                            } catch (FormatException)
+                            {
+                                break;
+                            }
+                            break;
+                    case "2":
+                            try
+                            {
+                                Console.Write("Enter first number: ");
+                                calc.FirstNumber = int.Parse(Console.ReadLine());
 
-                        Console.Write("Enter second number: ");
-                        calc.SecondNumber = int.Parse(Console.ReadLine());
+                                Console.Write("Enter second number: ");
+                                calc.SecondNumber = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("{0} * {1} = {2}",
-                            calc.FirstNumber, calc.SecondNumber, calc.MultiplyNumbers());
-                        break;
-                    case 3:
-                        Console.Write("Enter first number: ");
-                        calc.FirstNumber = int.Parse(Console.ReadLine());
+                                Console.WriteLine("{0} * {1} = {2}",
+                                    calc.FirstNumber, calc.SecondNumber, calc.MultiplyNumbers());
+                            }
+                            catch (FormatException)
+                            {
+                                break;
+                            }
+                            break;
+                    case "3":
+                            try
+                            {
+                                Console.Write("Enter first number: ");
+                                calc.FirstNumber = int.Parse(Console.ReadLine());
 
-                        Console.Write("Enter second number: ");
-                        calc.SecondNumber = int.Parse(Console.ReadLine());
+                                Console.Write("Enter second number: ");
+                                calc.SecondNumber = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("{0} > {1} = {2}",
-                            calc.FirstNumber, calc.SecondNumber, calc.SumInBetween());
-                        break;
-                    case 4:
-                        Console.Write("Add number to memory: ");
-                        calc.NumberInMemory = int.Parse(Console.ReadLine());
+                                Console.WriteLine("{0} > {1} = {2}",
+                                    calc.FirstNumber, calc.SecondNumber, calc.SumInBetween());
+                            }
+                            catch (FormatException)
+                            {
+                                break;
+                            }
+                            break;
+                    case "4":
+                            try
+                            {
+                                Console.Write("Add number to memory: ");
+                                calc.NumberInMemory = int.Parse(Console.ReadLine());
 
-                        Console.WriteLine("Number added to memory");
-                        break;
-                    case 5:
-                        calc.NumberInMemory = 0;
-                        Console.WriteLine("Number in memory cleared");
-                        break;
-                    case 6:
-                        Console.WriteLine(calc.ToString());
-                        break;
-                    case 7:
-                        Console.WriteLine("Goodbye!");
-                        Environment.Exit(0);
-                        break;
+                                Console.WriteLine("Number added to memory");
+                            }
+                            catch (FormatException)
+                            {
+                                break;
+                            }
+                            break;
+                    case "5":
+                            calc.NumberInMemory = 0;
+                            Console.WriteLine("Number in memory cleared");
+                            break;
+                    case "6":
+                            Console.WriteLine(calc.ToString());
+                            break;
+                    case "7":
+                            isRunning = false;
+                            Console.WriteLine("Goodbye!");
+                            Environment.Exit(0);
+                            break;
                 }
 
                 Console.WriteLine();
