@@ -56,7 +56,7 @@ namespace TestApp
             while (isRunning)
             {
                 Console.WriteLine("1. Add two numbers\n"
-                    + "2. Multiplay two numbers\n"
+                    + "2. Multiply two numbers\n"
                     + "3. Sum the numbers between two numbers\n"
                     + "4. Add number to memory\n"
                     + "5. Clear memory\n"
